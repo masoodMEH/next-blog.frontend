@@ -1,6 +1,7 @@
+import localFont from "next/font/local";
+
 import Header from "@/components/Header";
 import vazirFont from "@/constants/localFont";
-import localFont from "next/font/local";
 import "../styles/globals.css";
 
 const geistMono = localFont({
