@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 async function PostList() {
   await new Promise((res) => setTimeout(() => res(), 3000));
 
@@ -5,9 +7,23 @@ async function PostList() {
   const {
     data: { posts },
   } = await res.json();
-  return posts.length > 0
-    ? posts?.map((post) => <div className="">{post.title}</div>)
-    : null;
+  return posts.length > 0 ? (
+    <div className="grid grid-cols-12 gap-8">
+      {posts.map((post) => (
+        <div className="col-span-12 sm:col-span-6 lg:cols-span-4 border border-secondary-100 p-2 rounded-lg">
+          <div className="relative aspect-square">
+            <Image
+              src={post.coverImageUrl}
+              alt={post.title}
+              fill
+              className="object-cover object-center hover:scale-110 translate-all duration-300 ease-outt"
+              quality={80}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : null;
 }
 
 export default PostList;
