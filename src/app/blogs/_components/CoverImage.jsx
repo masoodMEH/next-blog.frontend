@@ -12,6 +12,7 @@ function CoverImage({ title, coverImageUrl, slug }) {
           className="object-cover object-center hover:scale-110 translate-all duration-300 ease-outt"
           quality={80}
         />
+        
       </Link>
     </div>
   );
